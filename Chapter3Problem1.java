@@ -15,7 +15,7 @@ public class Chapter3Problem1
 			x = IBIO.inputInt("Enter an even number greater than zero and less than 100: ");
 		}
 		while( x <= 0 || x >= 100 || x % 2 != 0);
-		IBIO.output("Thank you");
+		IBIO.output("Thank You");
 	}
 }
 
