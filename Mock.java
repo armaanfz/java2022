@@ -9,14 +9,20 @@ public class Mock {
             IBIO.output("Error - enter a positive number");
         }
         */
-        int num1 = 0, num2 = 1;
-        int counter = 0;
-        while (counter < n) {
-            System.out.print(num1 + "; ");
-            int num3 = num2 + num1;
-            num1 = num2;
-            num2 = num3;
-            counter = counter + 1;
+        while (n != 0) {
+            int num1 = 0, num2 = 1;
+            int counter = -1;
+            float avg2div = 0;
+            while (counter < n) {
+                avg2div = num1 + avg2div;
+                IBIO.output(num1 + "; ");
+                int num3 = num2 + num1;
+                num1 = num2;
+                num2 = num3;
+                counter = counter + 1;
+            }
+            float avg = avg2div / n;
+            IBIO.output("Average = " + avg);
         }
     }
 }

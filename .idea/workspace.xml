@@ -4,6 +4,7 @@
     <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Mock Q3 Done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Mock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664417369510</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mock Q3 Done">
+      <created>1664620353112</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664620353112</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
