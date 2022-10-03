@@ -9,14 +9,16 @@ public class Mock {
         }
         */
         int n = 1;
-        long num1 = 0, num2 = 1;
-        int counter = -1;
-        float avg2div = 0;
         while (n != 0) {
             n = IBIO.inputInt("Calculate up to term (n) ? ");
             if (n == 0) {
                 break;
             }
+
+            long num1 = 0, num2 = 1;
+            int counter = -1;
+            float avg2div = 0;
+
             while (counter < n) {
                 avg2div = num1 + avg2div;
                 if(n <= 20) {
@@ -30,20 +32,21 @@ public class Mock {
                 num2 = num3;
                 counter = counter + 1;
             }
+
             if(n > 20) {
                 IBIO.out(num1);
             }
+
             float avg = avg2div / n;
             IBIO.output("\nAverage = " + avg);
 
-            /* int digits = 0;
+            int digits = 0;
             long value = num1;
-            while (num1 > 0) {
+            while (value > 0) {
                 digits++;
                 value /= 10;
             }
             IBIO.output(num1 + " has " + digits + " digit(s)");
-            */
         }
     }
 }
