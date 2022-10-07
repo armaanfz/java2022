@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Tri Mock Done">
-      <change afterPath="$PROJECT_DIR$/RealTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TriangularMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/TriangularMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RealTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665057619855</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Tri Mock Done">
+      <created>1665109243941</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1665109243941</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +182,7 @@
     <MESSAGE value="Q9 done" />
     <MESSAGE value="Fib Mock Final" />
     <MESSAGE value="MockReal Q5 Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="MockReal Q5 Done" />
+    <MESSAGE value="Tri Mock Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tri Mock Done" />
   </component>
 </project>
