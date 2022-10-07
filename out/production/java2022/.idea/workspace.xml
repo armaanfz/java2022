@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Fib Mock Final">
-      <change afterPath="$PROJECT_DIR$/MockReal.java" afterDir="false" />
+    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Tri Mock Done">
+      <change afterPath="$PROJECT_DIR$/RealTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -31,6 +32,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Mock.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MockReal.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -143,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664772645555</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="MockReal Q5 Done">
+      <created>1665057619855</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665057619855</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +174,7 @@
     <MESSAGE value="Mock Q8 Done" />
     <MESSAGE value="Q9 done" />
     <MESSAGE value="Fib Mock Final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fib Mock Final" />
+    <MESSAGE value="MockReal Q5 Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="MockReal Q5 Done" />
   </component>
 </project>

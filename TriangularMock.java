@@ -9,10 +9,5 @@ public class TriangularMock {
         int counter = 0;
         int num1 = 0;
         int num2 = 1;
-        while (counter < n) {
-            int num3 = num1 + num2;
-            num3 +
-            counter++;
-        }
     }
 }
