@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="RealTest Done">
-      <change beforePath="$PROJECT_DIR$/ProgrammingClubHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgrammingClubHW.java" afterDir="false" />
-    </list>
+    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Point HW done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,15 +40,16 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/armaa/OneDrive/Documents/GitHub/java2022&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "last_opened_file_path": "C:/Users/armaa/OneDrive/Documents/GitHub/java2022",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -179,7 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667282657392</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Point HW done">
+      <created>1667298872447</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1667298872447</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Point HW done">
+      <created>1667299086302</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1667299086302</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,6 +218,7 @@
     <MESSAGE value="Tri Mock Done" />
     <MESSAGE value="RealTest Q7 Done" />
     <MESSAGE value="RealTest Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="RealTest Done" />
+    <MESSAGE value="Point HW done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Point HW done" />
   </component>
 </project>

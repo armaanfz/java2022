@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Mock Start">
+    <list default="true" id="448e84f1-794b-4eda-a0fd-4c9e5b5c86c8" name="Changes" comment="Mock Q6 Done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MockTestQ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/MockTestQ2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java2022/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667889225394</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Mock Q6 Done">
+      <created>1667891057362</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1667891057362</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +238,7 @@
     <MESSAGE value="RealTest Done" />
     <MESSAGE value="Point HW done" />
     <MESSAGE value="Mock Start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mock Start" />
+    <MESSAGE value="Mock Q6 Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mock Q6 Done" />
   </component>
 </project>

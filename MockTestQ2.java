@@ -47,23 +47,44 @@ public class MockTestQ2
 		}
 	}
 	
-	/*public static int countFactors(int n)
+	public static int countFactors(int n)
 	{
-		// your code goes here
+		int d = 0;
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				d = d + 1;
+			}
+		}
+		return d;
 	}
 	
 	public static boolean isPrime(int n)
 	{
-		// your code goes here
+		boolean d = true;
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				d = false;
+				break;
+			}
+		}
+		return d;
 	}
 	
 	public static void listPrimeFactors(int n)
 	{
-		// your code goes here
+		for (int i = 1; i <= n; i++) {
+			check: if (n % i == 0) {
+				for (int d = 1; d <= i; d++) {
+					if (d % i == 0) {
+						break check;
+					}
+				}
+			}
+		}
 	}
 	
 	// GCD by subtraction method
-	public static int gcd(int n, int m)
+	/*public static int gcd(int n, int m)
 	{
 		int gcd = 0;
 		if ( n == m )
@@ -106,11 +127,11 @@ public class MockTestQ2
 		System.out.println( "isFactor(120, 44)\t" + isFactor(120, 44) + "\t\tfalse" );
 		System.out.print("listFactors(120)\t");
 		listFactors(120); System.out.println("\nExpected result:\t1 2 3 4 5 6 8 10 12 15 20 24 30 40 60 120");
-		/*System.out.println( "countFactors(120)\t" + countFactors(120) + "\t\t16" );
+		System.out.println( "countFactors(120)\t" + countFactors(120) + "\t\t16" );
 		System.out.println( "isPrime(947)\t\t"  + isPrime(947)  + "\t\ttrue" );
 		System.out.println( "isPrime(1869)\t\t" + isPrime(1869) + "\t\tfalse" );
 		System.out.print("listPrimeFactors(120)\t");
 		listPrimeFactors(120); System.out.println("\t1 2 3 5");
-		System.out.println( "lcm(12, 21)\t\t" + lcm(12, 21) + "\t\t84" );*/
+		/*System.out.println( "lcm(12, 21)\t\t" + lcm(12, 21) + "\t\t84" );*/
 	}
 }
