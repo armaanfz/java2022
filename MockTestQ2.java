@@ -61,7 +61,7 @@ public class MockTestQ2
 	public static boolean isPrime(int n)
 	{
 		boolean d = true;
-		for (int i = 1; i <= n; i++) {
+		for (int i = 2; i <= (n / 2); i++) {
 			if (n % i == 0) {
 				d = false;
 				break;
@@ -72,12 +72,18 @@ public class MockTestQ2
 	
 	public static void listPrimeFactors(int n)
 	{
-		for (int i = 1; i <= n; i++) {
-			check: if (n % i == 0) {
-				for (int d = 1; d <= i; d++) {
-					if (d % i == 0) {
-						break check;
-					}
+		int inew = 1;
+		IBIO.out(1 + " ");
+		for (int i = 2; i <= n; i++) {
+			while (n % i == 0) {
+				if (inew != i) {
+					IBIO.out(i + " ");
+					inew = i;
+					n /= i;
+				}
+				else {
+					n /= i;
+					break;
 				}
 			}
 		}
