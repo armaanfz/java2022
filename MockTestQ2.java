@@ -90,7 +90,7 @@ public class MockTestQ2
 	}
 	
 	// GCD by subtraction method
-	/*public static int gcd(int n, int m)
+	public static int gcd(int n, int m)
 	{
 		int gcd = 0;
 		if ( n == m )
@@ -113,8 +113,15 @@ public class MockTestQ2
 	
 	public static int lcm(int a, int b)
 	{
-		// your code goes here
-	}*/
+		int ans;
+		if ((a * b) < 0) {
+			ans = (-1 * a * b) / gcd(a, b);
+		}
+		else {
+			ans = (a * b) / gcd(a, b);
+		}
+		return ans;
+	}
 	
 	public static void main (String[] args)
 	{
@@ -138,6 +145,6 @@ public class MockTestQ2
 		System.out.println( "isPrime(1869)\t\t" + isPrime(1869) + "\t\tfalse" );
 		System.out.print("listPrimeFactors(120)\t");
 		listPrimeFactors(120); System.out.println("\t1 2 3 5");
-		/*System.out.println( "lcm(12, 21)\t\t" + lcm(12, 21) + "\t\t84" );*/
+		System.out.println( "lcm(12, 21)\t\t" + lcm(12, 21) + "\t\t84" );
 	}
 }
