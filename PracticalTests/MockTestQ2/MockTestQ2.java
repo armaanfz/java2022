@@ -15,44 +15,71 @@ public class MockTestQ2
 {
 	public static boolean isEven(int n)
 	{
-		// your code goes here
+		return n % 2 == 0;
 	}
-	
+
 	public static boolean isPositive(int n)
 	{
-		// your code goes here
+		return n >= 0;
 	}
-	
+
 	public static int abs(int n)
 	{
-		// your code goes here
+		if (n < 0) {
+			return -1 * n;
+		}
+		else {
+			return n;
+		}
 	}
-	
+
 	public static boolean isFactor(int n, int x)
 	{
-		// your code goes here
+		return n % x == 0;
 	}
-	
+
 	public static void listFactors(int n)
 	{
-		// your code goes here
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				IBIO.out(i + " ");
+			}
+		}
 	}
-	
+
 	public static int countFactors(int n)
 	{
-		// your code goes here
+		int d = 0;
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				d = d++;
+			}
+		}
+		return d;
 	}
-	
+
 	public static boolean isPrime(int n)
 	{
-		// your code goes here
+		boolean d = true;
+		for (int i = 2; i <= (n / 2); i++) {
+			if (n % i == 0) {
+				d = false;
+				break;
+			}
+		}
+		return d;
 	}
-	
+
 	public static void listPrimeFactors(int n)
 	{
-		// your code goes here
+		for(int i = 1; i <= n; i++) {
+			if( (n % i == 0) && isPrime(i)) {
+				System.out.print(i + " ");
+			}
+		}
 	}
-	
+
+
 	// GCD by subtraction method
 	public static int gcd(int n, int m)
 	{
@@ -74,16 +101,16 @@ public class MockTestQ2
 		}
 		return gcd;
 	}
-	
+
 	public static int lcm(int a, int b)
 	{
-		// your code goes here
+		return abs(a * b) / gcd(a, b);
 	}
-	
+
 	public static void main (String[] args)
 	{
 		// your code for instruction/step #1 goes here
-		
+		System.out.println("Armaan Fernandez");
 		// NO MODIFICATIONS REQUIRED BELOW THIS COMMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 		System.out.println("Method call\t\tYour result\tExpected result");
 		System.out.println("=======================================================");
