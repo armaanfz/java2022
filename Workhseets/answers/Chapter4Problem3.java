@@ -23,7 +23,7 @@ public class Chapter4Problem3 // 4.3
 		for(i=1; i<=num; i++)
 		{
 			for(j=1; j<=num; j++)
-			{	IBIO.output("first# " + i + "\tsecond# " + j);
+			{	IBIO.output("first number: " + i + "    second number: " + j);
 				x = (i*i) + (j*j);
 				if(x==num)
 				{
