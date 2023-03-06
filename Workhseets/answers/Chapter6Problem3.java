@@ -38,13 +38,13 @@ public class Chapter6Problem3
 		{	// lines 39 is 6.3
 			System.out.println( spaces(n-i) + stars(n)
 			+ spaces(i*2) + stars(n) );
-			// line 40 completes the top of the diamond
+			// line 40 completes the top-right side of the diamond
 		}
 		
 		for(int i = 1; i <= n; i++)
 		{
 			System.out.println( spaces(i) +
-			stars(n) );
+			stars(n) + spaces((n-i)*2) + stars(n) );
 		}
 
 	}
