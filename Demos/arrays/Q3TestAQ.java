@@ -30,6 +30,7 @@ public class Q3TestAQ
 	public static void main (String[] args)
 	{
 		double[] data = { -2,2,4,3,0,-1 };
+		printArray(data);
 		double[] d = calculateThreePointMovingAverage(data);
 		System.out.println("\nResult:");
 		printArray(d);
