@@ -20,18 +20,6 @@ public class Q3Practical
 		return max;
 	}
 
-	public static int maxPos(int[] a)
-	{
-		int max = a[0];
-		int maxPos = 0;
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] > max) {
-				max = a[i];
-				maxPos = i;
-			}
-		}
-		return maxPos;
-	}
 	public static int min(int[] a)
 	{
 		int min = a[0];
@@ -41,18 +29,6 @@ public class Q3Practical
 			}
 		}
 		return min;
-	}
-	public static int minPos(int[] a)
-	{
-		int min = a[0];
-		int minPos = 0;
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] < min) {
-				min = a[i];
-				minPos = i;
-			}
-		}
-		return minPos;
 	}
 
 	public static double average(int[] a)
@@ -109,43 +85,41 @@ public class Q3Practical
 	
 	public static void largest(int[] a, int howMany)
 	{
-		int[] b = a;
-		int[] c = new int[howMany];
+		int largest = max(a);
+		int largest2 = min(a);
+		System.out.print(largest + " ");
 		for (int i = 0; i < howMany; i++) {
-			int temp = max(b);
-			c[i] = temp;
-			for (int j = 0, k = 0; j < a.length; j++, k++) {
-				if (j == maxPos(b)) {
-					a[j] = b[k];
-				} else {
-					k = k - 1;
-					continue;
+			for (int j = 0; j < a.length; j++) {
+				if (a[j] > largest2 && a[j] < largest) {
+					largest2 = a[j];
+					break;
 				}
 			}
+			System.out.print(largest2 + " ");
+			largest = largest2;
+			largest2 = a[0];
 		}
-		printArray(c);
 	}
 	
 	public static void smallest(int[] a, int howMany)
 	{
-		int[] b = a;
-		int[] c = new int[howMany];
+		int smallest = min(a);
+		int smallest2 = max(a);
+		System.out.print(smallest + " ");
 		for (int i = 0; i < howMany; i++) {
-			int temp = min(b);
-			c[i] = temp;
-			for (int j = 0, k = 0; j < a.length; j++, k++) {
-				if (j == minPos(b)) {
-					a[j] = b[k];
-				} else {
-					k = k - 1;
-					continue;
+			for (int j = 0; j < a.length; j++) {
+				if (a[j] < smallest2 && a[j] > smallest) {
+					smallest2 = a[j];
+					break;
 				}
 			}
+			System.out.print(smallest2 + " ");
+			smallest = smallest2;
+			smallest2 = a[0];
 		}
-		printArray(c);
-	}	
-	
-	
+	}
+
+
 	public static void main (String[] args)
 	{	// DO NOT CHANGE THE LINE BELOW v
 		final int[] numbers = { 163, 491, 211, 5, 509, 17, 313, 197, 7, 31, 97, 4, 131, 223, 463, 331, 107, 59, 293, 337, 461, 191, 233, 277, 71, 109, 241, 61, 29, 503, 367, 449, 89, 431, 389, 139, 269, 263, 47, 349, 257, 67, 2, 11, 251, 227, 457, 193, 383, 359, 379, 83, 173, 409, 239, 151, 311, 13, 113, 443, 419, 281, 181, 487, 53, 103, 179, 43, 479, 149, 199, 19, 283, 307, 23, 439, 271, 373, 167, 73, 421, 101, 401, 37, 353, 521, 433, 41, 523, 499, 347, 127, 157, 3, 79, 467, 229, 397, 137, 317 };
