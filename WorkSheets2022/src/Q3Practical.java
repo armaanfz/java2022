@@ -85,38 +85,43 @@ public class Q3Practical
 	
 	public static void largest(int[] a, int howMany)
 	{
-		int largest = max(a);
-		int largest2 = min(a);
-		System.out.print(largest + " ");
+		int[] result = new int[howMany];
 		for (int i = 0; i < howMany; i++) {
+			int largest = min(a);
 			for (int j = 0; j < a.length; j++) {
-				if (a[j] > largest2 && a[j] < largest) {
-					largest2 = a[j];
-					break;
+				if (a[j] > largest) {
+					largest = a[j];
 				}
 			}
-			System.out.print(largest2 + " ");
-			largest = largest2;
-			largest2 = a[0];
+			result[i] = largest;
+			// Set all instances of the smallest value to the maximum value to exclude them in future iterations
+			for (int j = 0; j < a.length; j++) {
+				if (a[j] == largest) {
+					a[j] = min(a);
+				}
+			}
 		}
+		printArray(result);
 	}
 	
 	public static void smallest(int[] a, int howMany)
 	{
-		int smallest = min(a);
-		int smallest2 = max(a);
-		System.out.print(smallest + " ");
+		int[] result = new int[howMany];
 		for (int i = 0; i < howMany; i++) {
+			int smallest = max(a);
 			for (int j = 0; j < a.length; j++) {
-				if (a[j] < smallest2 && a[j] > smallest) {
-					smallest2 = a[j];
-					break;
+				if (a[j] < smallest) {
+					smallest = a[j];
 				}
 			}
-			System.out.print(smallest2 + " ");
-			smallest = smallest2;
-			smallest2 = a[0];
+			result[i] = smallest;
+			for (int j = 0; j < a.length; j++) {
+				if (a[j] == smallest) {
+					a[j] = max(a);
+				}
+			}
 		}
+		printArray(result);
 	}
 
 
