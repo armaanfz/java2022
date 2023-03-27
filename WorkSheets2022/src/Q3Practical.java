@@ -77,6 +77,17 @@ public class Q3Practical
 		}
 		return unique;
 	}
+
+	public static int isPopulated(int[] a) {
+		int counter = 0;
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] == 0) {
+				continue;
+			}
+			counter++;
+		}
+		return counter;
+	}
 	
 	public static void printArray(int[] a)
 	{
@@ -127,7 +138,7 @@ public class Q3Practical
 
 	public static void main (String[] args)
 	{	// DO NOT CHANGE THE LINE BELOW v
-		final int[] numbers = { 163, 491, 211, 5, 509, 17, 313, 197, 7, 31, 97, 4, 131, 223, 463, 331, 107, 59, 293, 337, 461, 191, 233, 277, 71, 109, 241, 61, 29, 503, 367, 449, 89, 431, 389, 139, 269, 263, 47, 349, 257, 67, 2, 11, 251, 227, 457, 193, 383, 359, 379, 83, 173, 409, 239, 151, 311, 13, 113, 443, 419, 281, 181, 487, 53, 103, 179, 43, 479, 149, 199, 19, 283, 307, 23, 439, 271, 373, 167, 73, 421, 101, 401, 37, 353, 521, 433, 41, 523, 499, 347, 127, 157, 3, 79, 467, 229, 397, 137, 317 };
+		final int[] numbers = {163, 491, 211, 5, 509, 17, 313, 197, 7, 31, 97, 4, 131, 223, 463, 331, 107, 59, 293, 337, 461, 191, 233, 277, 71, 109, 241, 61, 29, 503, 367, 449, 89, 431, 389, 139, 269, 263, 47, 349, 257, 67, 2, 11, 251, 227, 457, 193, 383, 359, 379, 83, 173, 409, 239, 151, 311, 13, 113, 443, 419, 281, 181, 487, 53, 103, 179, 43, 479, 149, 199, 19, 283, 307, 23, 439, 271, 373, 167, 73, 421, 101, 401, 37, 353, 521, 433, 41, 523, 499, 347, 127, 157, 3, 79, 467, 229, 397, 137, 317 };
 		// DO NOT CHANGE THE LINE ABOVE ^
 		
 		// OUTPUT YOUR NAME HERE
@@ -136,6 +147,7 @@ public class Q3Practical
 		// OUTPUT THE AMOUNT OF NUMBERS IN THE ARRAY HERE -- DON'T JUST output(100)
 		
 		System.out.println();
+		System.out.println("Populated Values: " + isPopulated(numbers));
 		System.out.print(Arrays.toString(numbers));
 		System.out.println();
 		System.out.println( "Min            (2) = " + min(numbers) );
