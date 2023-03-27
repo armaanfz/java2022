@@ -17,18 +17,18 @@ public class QueueTest
 		// input integers until 0 is input
 		// display the queue as it gets populated
 		int input;
-		int queueSize = 0;
+		//int queueSize = 0;
 		System.out.println("Creating a queue:");
 		do
 		{
 			input = IBIO.inputInt("enter an integer (0 ends): ");
 			if( input != 0 )
-			{	queueSize++;
+			{	//queueSize++;
 				q.enQueue(input);
 				q.printQueue();
 			}
 		} while( input != 0 );
-		
+		int queueSize = q.size;
 		// Is there a better way of keeping track and getting the size of the queue?
 		System.out.println("\nCopying the queue into an array:");
 		int[] array = new int[queueSize];
@@ -37,8 +37,6 @@ public class QueueTest
 			q.printQueue();
 			printArray(array);
 		}
-		
-		
 	}
 	
 	public static void printArray(int[] a)
