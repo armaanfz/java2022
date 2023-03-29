@@ -140,7 +140,6 @@ public class Q3Practical
 	{	// DO NOT CHANGE THE LINE BELOW v
 		final int[] numbers = {163, 491, 211, 5, 509, 17, 313, 197, 7, 31, 97, 4, 131, 223, 463, 331, 107, 59, 293, 337, 461, 191, 233, 277, 71, 109, 241, 61, 29, 503, 367, 449, 89, 431, 389, 139, 269, 263, 47, 349, 257, 67, 2, 11, 251, 227, 457, 193, 383, 359, 379, 83, 173, 409, 239, 151, 311, 13, 113, 443, 419, 281, 181, 487, 53, 103, 179, 43, 479, 149, 199, 19, 283, 307, 23, 439, 271, 373, 167, 73, 421, 101, 401, 37, 353, 521, 433, 41, 523, 499, 347, 127, 157, 3, 79, 467, 229, 397, 137, 317 };
 		// DO NOT CHANGE THE LINE ABOVE ^
-		
 		// OUTPUT YOUR NAME HERE
 		System.out.print("Armaan Fernandez. ");
 		System.out.print("Amount of numbers (100): " + numbers.length);
@@ -160,7 +159,7 @@ public class Q3Practical
 		int howMany = IBIO.inputInt( "How many largest and smallest numbers to find (2~10)? " );
 		// INPUT HOWMANY BELOW, AND VALIDATE THE INPUT PROPERLY
 		while (howMany < 2 || howMany > 10) {
-			howMany = IBIO.inputInt("Error-enter a number between 1 and 10: ");
+			howMany = IBIO.inputInt("Error-enter a number between 2 and 10: ");
 		}
 
 
