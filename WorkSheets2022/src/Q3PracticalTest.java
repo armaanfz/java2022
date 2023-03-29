@@ -7,41 +7,60 @@ public class Q3PracticalTest
 
     public static boolean isFull(String[] a)
     {
-		// your code! (remember to change the line below as well!)
-        return false;
+        return population == MAXSIZE;
     }
 
     public static boolean isEmpty(String[] a)
     {
-		// your code! (remember to change the line below as well!)
-        return false;
+        return population == 0;
     }
 
     public static void printArray(String[] a)
     {
-        // your code!
+        for(int i = 0; i < population; i++)
+        {
+            System.out.print( i + ":" + a[i] + "  ");
+        }
+        System.out.printf("[ population: %d ]\n", population);
     }
 
     public static void printWholeArray(String[] a)
     {
-		// your code!
+        for(int i = 0; i < a.length; i++)
+        {
+            System.out.print( i + ":" + a[i] + "  ");
+        }
+        System.out.print("[ length: " + a.length + " ]\n");
     }
 
     public static String[] clone(String[] a)
     {
-        // your code! (remember to change the line below as well!)
-        return null;
+        String[] b = new String[population];
+        for (int i = 0; i < population; i++) {
+            b[i] = a[i];
+        }
+        return b;
     }
 
     public static void add(String[] a, String data)
     {
-        // your code!
+        if(isFull(a))
+            System.out.println("Error - array full");
+        else {
+            a[population] = data;
+            population++;
+        }
+        printArray(a);
     }
 
     public static int search(String[] a, String data)
     {
-        // your code! (remember to change the line below as well!)
-        return 0;
+        for(int i = 0; i < population; i++)
+        {
+            if(a[i].equalsIgnoreCase(data) )
+                return i;
+        }
+        return -1;
     }
 
     public static void swap(String[] a, int index1, int index2)
@@ -56,7 +75,17 @@ public class Q3PracticalTest
 
     public static void remove(String[] a, String data)
     {
-		// your code!
+        int indexToRemove = search(a, data);
+        if( indexToRemove == -1) {
+            System.out.printf("%s not found.\n", data);
+        } else {
+            // this for loop copies all the elements below the element to remove one index UP
+            for(int i = indexToRemove; i < population-1; i++)
+            {
+                a[i] = a[i+1];
+            }
+            population--;
+        }
     }
 
     public static void insert(String[] a, String data, int index)
