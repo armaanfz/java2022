@@ -18,7 +18,7 @@ public class SortingAlgos
 	public static int[] clone(int[] a)
 	{
 		int[] x = new int[a.length];
-		for(int i = 0; i < a.length; i++)
+		for (int i = 0; i < a.length; i++)
 		{	x[i] = a[i];
 		}
 		return x;
@@ -51,12 +51,45 @@ public class SortingAlgos
 
 	public static void bubbleSort(int[] a)
 	{
-		// finish this for homework. Refer to sorting_algos_SL.pdf
+		int temp;
+		int counter = 0;
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a.length - i - 1; j++) {
+				counter++;
+				if (a[j] > a[j + 1]) {
+					temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+				}
+			}
+			printArray(a);
+		}
+		System.out.print("counter: " + counter + "\n");
+	}
+	public static int minPos(int[] a, int b) {
+		int min = a[b];
+		int minPos = b;
+		for (int i = b; i < a.length; i++) {
+			if (a[i] < min) {
+				min = a[i];
+				minPos = i;
+			}
+		}
+		return minPos;
 	}
 
 	public static void insertionSort(int[] a)
 	{
-		// To be done in class. Refer to sorting_algos_SL.pdf
+		int counter = 0;
+		for (int i = 0; i < a.length - 1; i++) {
+			int currentMin = minPos(a, i);
+			int temp = a[currentMin];
+			a[currentMin] = a[i];
+			a[i] = temp;
+			counter++;
+			printArray(a);
+		}
+		System.out.print("counter: " + counter + "\n");
 	}
 
 	public static void main (String[] args)
