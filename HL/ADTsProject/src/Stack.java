@@ -13,10 +13,10 @@ public class Stack
 	}
 	
 	// public void push(Node newNode) OR
-	public void push(int d)
+	public void push(int data)
 	{	// the next 3 lines create a node with the argument of push (d)
 		Node newNode = new Node();
-		newNode.data = d;
+		newNode.data = data;
 		newNode.next = null;
 		
 		if( isEmpty() )

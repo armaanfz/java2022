@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 
 public class Q3PracticalTest
 {
@@ -17,9 +18,13 @@ public class Q3PracticalTest
 
     public static void printArray(String[] a)
     {
-        for(int i = 0; i < population; i++)
+        for(int i = 0; i < MAXSIZE; i++)
         {
-            System.out.print( i + ":" + a[i] + "  ");
+            if (a[i] == null) {
+                continue;
+            }
+            else
+                System.out.print(i + ":" + a[i] + "  ");
         }
         System.out.printf("[ population: %d ]\n", population);
     }
@@ -45,32 +50,48 @@ public class Q3PracticalTest
     public static void add(String[] a, String data)
     {
         if(isFull(a))
-            System.out.println("Error - array full");
+            System.out.println("Error adding " + data);
         else {
             a[population] = data;
             population++;
+            printArray(a);
         }
-        printArray(a);
     }
 
     public static int search(String[] a, String data)
     {
-        for(int i = 0; i < population; i++)
-        {
-            if(a[i].equalsIgnoreCase(data) )
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == null && data == null) {
                 return i;
+            } else if (a[i] != null && a[i].equalsIgnoreCase(data)) {
+                return i;
+            }
         }
         return -1;
     }
 
     public static void swap(String[] a, int index1, int index2)
     {
-		// your code!
+		if ((index1 > -1 && index1 < 10) && (index2 > -1 && index2 < 10)) {
+            String temp1 = a[index1];
+            String temp2 = a[index2];
+            a[index2] = temp1;
+            a[index1] = temp2;
+        }
+        else {
+            System.out.println("Error in index value(s)");
+        }
     }
 
     public static void replace(String[] a, String original, String replacement)
     {
-        // your code!
+        int indexToReplace = search(a, original);
+        if(indexToReplace > -1 && indexToReplace < 10) {
+            a[indexToReplace] = replacement;
+        }
+        else {
+            System.out.printf("%s not found.\n", original);
+        }
     }
 
     public static void remove(String[] a, String data)
@@ -79,18 +100,27 @@ public class Q3PracticalTest
         if( indexToRemove == -1) {
             System.out.printf("%s not found.\n", data);
         } else {
-            // this for loop copies all the elements below the element to remove one index UP
-            for(int i = indexToRemove; i < population-1; i++)
-            {
-                a[i] = a[i+1];
-            }
+            a[indexToRemove] = null;
             population--;
         }
     }
 
     public static void insert(String[] a, String data, int index)
     {
-		// your code!
+        if(isFull(a))
+            System.out.println("Error - array full");
+        else {
+            if (index < population) {
+                population++;
+                String temp = a[index];
+                a[index] = data;
+                int firstNullIndex = search(a, null);
+                a[firstNullIndex] = temp;
+            }
+            else {
+                System.out.print("Error in index value(s)");
+            }
+        }
     }
 
 	// Do not modify the code below this line--------------------------------------------------------------------------
