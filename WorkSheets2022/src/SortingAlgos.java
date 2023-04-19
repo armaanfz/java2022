@@ -4,8 +4,8 @@
  */
 
 
-public class SortingAlgos
-{
+public class SortingAlgos {
+	private static int c = 0;
 	public static void printArray(int[] a)
 	{
 		for(int i = 0; i < a.length; i++)
@@ -26,10 +26,8 @@ public class SortingAlgos
 
 	public static void selectionSort(int[] a)
 	{
-		int currentIndex = 0;
-		while( currentIndex < a.length - 1 )
-		{
-			int smallestIndex = currentIndex;
+		for (int i = 0; i < a.length -1; i++) {
+			int smallestIndex = i;
 			int smallestValue = a[smallestIndex];
 			int checkIndex	  = smallestIndex + 1;
 			while( checkIndex < a.length )
@@ -41,9 +39,8 @@ public class SortingAlgos
 				}
 				checkIndex++;
 			}
-			a[smallestIndex] = a[currentIndex];
-			a[currentIndex] = smallestValue;
-			currentIndex++;
+			a[smallestIndex] = a[i];
+			a[i] = smallestValue;
 			System.out.print("\t");
 			printArray(a);
 		}
@@ -74,22 +71,21 @@ public class SortingAlgos
 				min = a[i];
 				minPos = i;
 			}
+			c++;
 		}
 		return minPos;
 	}
 
 	public static void insertionSort(int[] a)
 	{
-		int counter = 0;
 		for (int i = 0; i < a.length - 1; i++) {
 			int currentMin = minPos(a, i);
 			int temp = a[currentMin];
 			a[currentMin] = a[i];
 			a[i] = temp;
-			counter++;
 			printArray(a);
 		}
-		System.out.print("counter: " + counter + "\n");
+		System.out.print("counter: " + c + "\n");
 	}
 
 	public static void main (String[] args)
