@@ -81,18 +81,17 @@ public class SortingAlgos {
         System.out.println("counter: " + c);
     }
 
-    public static int binarySearch(int[] a, int x) {
-        int r = a.length -1, l = 0;
-        while (l <= r) {
+    public static int binarySearch(int[] a, int l, int r, int x) {
+        if (l <= r) {
             int m = l + ((r-l) / 2);
             if (a[m] == x) {
                 return m;
             }
             if (a[m] < x) {
-                l = m + 1;
+                return binarySearch(a, m+1, r, x);
             }
             else {
-                r = m - 1;
+                return binarySearch(a, l, m-1, x);
             }
         }
         return -1;
@@ -130,7 +129,8 @@ public class SortingAlgos {
         System.out.println("\nFinal result:");
         printArray(insert);
         int target = IBIO.inputInt("\n\nBinary search for number: ");
-        int result = binarySearch(bubble, target);
+        int r = bubble.length -1, l = 0;
+        int result = binarySearch(bubble, l, r, target);
         System.out.println("\nElement " + target + " is present at index " + result);
 
         int size = linear.length -1;
