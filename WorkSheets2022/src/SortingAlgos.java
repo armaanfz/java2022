@@ -109,33 +109,56 @@ public class SortingAlgos {
         }
     }
     public static void main (String[] args) {
-        int[] original = { 12, 7, 14, 9, 5, 3 };
-        int[] selection = clone(original);
-        int[] bubble = clone(original);
-        int[] insert = clone(original);
-        int[] linear = clone(original);
-        System.out.println("\nOriginal array:");
-        printArray(original);
-        System.out.println("\nSelection sort:");
-        selectionSort(selection);
-        System.out.println("\nFinal result:");
-        printArray(selection);
-        System.out.println("\nBubble sort:");
-        bubbleSort(bubble);
-        System.out.println("\nFinal result:");
-        printArray(bubble);
-        System.out.println("\nInsertion sort:");
-        insertionSort(insert);
-        System.out.println("\nFinal result:");
-        printArray(insert);
-        int target = IBIO.inputInt("\n\nBinary search for number: ");
-        int r = bubble.length -1, l = 0;
-        int result = binarySearch(bubble, l, r, target);
-        System.out.println("\nElement " + target + " is present at index " + result);
+        String startCase = IBIO.inputString("Do you want to work with string arrays or integer arrays (str/int)? ");
+        if (startCase.equals("int")) {
+            int[] original = {12, 7, 14, 9, 5, 3};
+            int[] selection = clone(original);
+            int[] bubble = clone(original);
+            int[] insert = clone(original);
+            int[] linear = clone(original);
+            System.out.println("\nOriginal array:");
+            printArray(original);
+            System.out.println("\nSelection sort:");
+            selectionSort(selection);
+            System.out.println("\nFinal result:");
+            printArray(selection);
+            System.out.println("\nBubble sort:");
+            bubbleSort(bubble);
+            System.out.println("\nFinal result:");
+            printArray(bubble);
+            System.out.println("\nInsertion sort:");
+            insertionSort(insert);
+            System.out.println("\nFinal result:");
+            printArray(insert);
+            int target = IBIO.inputInt("\n\nBinary search for number: ");
+            int r = bubble.length - 1, l = 0;
+            int result = binarySearch(bubble, l, r, target);
+            System.out.println("\nElement " + target + " is present at index " + result);
 
-        int size = linear.length -1;
-        int linearTarget = IBIO.inputInt("\n\nLinear search for number: ");
-        int linearResult = linearSearch(linear, size, linearTarget);
-        System.out.println("\nElement " + linearTarget + " is present at index " + linearResult);
+            int size = linear.length - 1;
+            int linearTarget = IBIO.inputInt("\n\nLinear search for number: ");
+            int linearResult = linearSearch(linear, size, linearTarget);
+            System.out.println("\nElement " + linearTarget + " is present at index " + linearResult);
+        }
+        else {
+            String[] original = {"apple", "banana", "pineapple", "oranges"};
+            String[] selection = cloneString(original);
+        }
+    }
+
+    public static void printStringArray(String[] a) {
+        for(int i = 0; i < a.length; i++) {
+            System.out.printf( "[%d]%-2d  ",i , a[i]);
+        }
+        System.out.println();
+    }
+
+    public static String[] cloneString(String[] a) {
+        String[] x = new String[a.length];
+        //noinspection ManualArrayCopy
+        for (int i = 0; i < a.length; i++) {
+            x[i] = a[i];
+        }
+        return x;
     }
 }
