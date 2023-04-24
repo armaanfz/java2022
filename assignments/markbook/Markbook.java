@@ -1,50 +1,73 @@
 public class Markbook
 {
 	/* scoreToGrade: method to convert a percentage to a letter grade
-		85-100 = A
-		75-84  = B
-		65-74  = C
-		50-64  = D
-		<50    = F
-	*/
-	public static String scoreToGrade(double score)
-	{	// score is a % from 0 - 100 inclusive
+        85-100 = A
+        75-84  = B
+        65-74  = C
+        50-64  = D
+        <50    = F
+    */
+	public static String scoreToGrade(double score) {    // score is a % from 0 to 100 inclusive
 		String grade = "";
-		// your code goes here
+		if (score < 50) {
+			grade = "F";
+		} else if (score <= 64) {
+			grade = "D";
+		} else if (score <= 74) {
+			grade = "C";
+		} else if (score <= 84) {
+			grade = "B";
+		} else {
+			grade = "A";
+		}
 		return grade;
 	}
 
 
-	public static String[] calculate(int[][] scores)
-	{	// calculate the average grade for each student, then
+	public static String[] calculate(int[][] scores) {    // calculate the average grade for each student, then
 		// convert it to a letter grade with scoreToGrade method
 		// and put result into a 3rd parallel array (averages)
         String[] averages = new String[scores.length];
-		// your code goes here
-        return averages;
+		double sum = 0; double avg;
+		for (int i = 0; i < scores.length; i++) {
+			int tests = scores[i].length; // number of tests/scores per student
+			for(int j = 0; j < tests; j++) {
+				sum = sum + scores[i][j];
+			}
+			avg = sum / tests;
+			String finalGrade = scoreToGrade(avg);
+			averages[i] = finalGrade;
+			sum = 0;
+		}
+		return averages;
 	}
 
 
-	public static double classAverage(int[][] scores)
-	{	// calculate the class average based on the 2D array with students scores
-        double sum = 0;		// to add the scores of each student
+	public static double classAverage(int[][] scores) {    // calculate the class average based on the 2D array with students scores
+        double sum = 0;        // to add the scores of each student
+		double sum2 = 0;
 		double average = 0; // to store the result
-        // your code goes here
+		for (int i = 0; i < scores.length; i++) {
+			int tests = scores[i].length; // number of tests/scores per student
+			sum2 = tests + sum2;
+			for (int j = 0; j < tests; j++) {
+				sum = sum + scores[i][j];
+			}
+		}
+
+		average = sum / sum2;
         return average;
 	}
 
 
-	public static void printMarkBook(String[] studentNames, int[][] scores, String[] results)
-	{
-		String tab = "\t";				// escape code for the tab character
+	public static void printMarkBook(String[] studentNames, int[][] scores, String[] results) {
+		String tab = "\t";                // escape code for the tab character
 		int classSize = scores.length;  // or studentNames.length(), which should be the same
 		System.out.println("\nMarkbook\n========\n");
-		for(int s = 0; s < classSize; s++)
-		{
+		for(int s = 0; s < classSize; s++) {
 			int tests = scores[s].length; // number of tests/scores per student
 			System.out.print( studentNames[s] + tab + tab );
-			for(int t = 0; t < tests; t++)
-			{
+			for(int t = 0; t < tests; t++) {
 				System.out.print( scores[s][t] + tab );
 			} // end for loop to output the test scores
 			System.out.println( results[s] );
@@ -54,10 +77,9 @@ public class Markbook
 	} // end printMarkBook
 
 
-	public static void main (String args[])
-	{
-		String[] students  = { "Able", "Adam", "Alan", "Geoff", "Jon", "Karl",
-							  "Keane", "Louie", "Michael", "Selina" };
+	public static void main (String args[]) {
+		String[] students  = { "Able", "Adam", "Alan", "Geoff", "Jon ", "Karl",
+				"Keane", "Louie", "Michael", "Selina" };
 
 		int[][] testScores = {  { 85, 83, 77, 91, 76 },
 								{ 80, 90, 95, 93, 48 },
