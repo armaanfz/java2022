@@ -14,5 +14,9 @@ public class Node
 		this.data = d;
 	}
 
+	// is the node linked to another node or does it point to null?
+	public boolean hasNext()
+	{	return this.next != null;
+	}
 }
 

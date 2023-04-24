@@ -50,7 +50,20 @@ public class Stack
 			System.out.print(" -> ");
 			temp = temp.next;
 		}
-		System.out.println("NULL");
+		System.out.println("NULL. Stack size = " + this.size() );
+	}
+
+	public int size()
+	{
+		Node temp = top;
+		int size = 0;
+		//while(top != null)
+		while( temp != null )
+		{
+			size++;
+			temp = temp.next;
+		}
+		return size;
 	}
 }
 
