@@ -1,5 +1,3 @@
-import java.nio.channels.SelectableChannel;
-
 /*
  * Sorting algos in Java
  *
@@ -143,7 +141,7 @@ public class SortingAlgos {
             System.out.println("\nElement " + linearTarget + " is present at index " + linearResult);
         }
         else {
-            String[] original = {"apple", "banana", "pineapple", "oranges"};
+            String[] original = {"banana", "apple", "pineapple", "orange", "strawberry"};
             String[] selection = cloneString(original);
             String[] bubble  = cloneString(original);
             String[] insert  = cloneString(original);
@@ -159,7 +157,7 @@ public class SortingAlgos {
 
     public static void printStringArray(String[] a) {
         for(int i = 0; i < a.length; i++) {
-            System.out.printf( "[%d]%-2d  ",i , a[i]);
+            System.out.print( "[" + i + "]" + a[i] + "  ");
         }
         System.out.println();
     }
@@ -180,9 +178,10 @@ public class SortingAlgos {
             int checkIndex = smallestIndex + 1;
             while( checkIndex < a.length ) {
                 if((a[checkIndex].compareTo(smallestValue)) < 0) {
-                smallestIndex = checkIndex;
-                smallestValue = a[checkIndex];
-                checkIndex++;
+                    smallestIndex = checkIndex;
+                    smallestValue = a[checkIndex];
+                    checkIndex++;
+                }
             }
             a[smallestIndex] = a[i];
             a[i] = smallestValue;
