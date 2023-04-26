@@ -126,7 +126,24 @@ public class SortingAlgos {
         System.out.println("counter: " + c);
     }
 
-    public static int binarySearch(int[] a, int l, int r, int x) {
+    public static int binarySearch(int[] a, int x) {
+        int l = 0, r = a.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (a[m] == x) {
+                return m;
+            }
+            if (a[m] < x) {
+                l = m + 1;
+            }
+            else {
+                r = m - 1;
+            }
+        }
+        return -1;
+    }
+//  Recursive Binary Search
+    /*public static int binarySearch(int[] a, int l, int r, int x) {
         if (l <= r) {
             int m = l + ((r-l) / 2);
             if (a[m] == x) {
@@ -140,7 +157,7 @@ public class SortingAlgos {
             }
         }
         return -1;
-    }
+    }*/
 
     public static int linearSearch(int[] a, int x) {
         for (int i = 0; i < a.length; i++) {
@@ -188,8 +205,7 @@ public class SortingAlgos {
         System.out.println("\n\nSorted array:");
         printArray(bubble);
         int target = IBIO.inputInt("Binary search for number: ");
-        int r = bubble.length - 1, l = 0;
-        int binaryResult = binarySearch(bubble, l, r, target);
+        int binaryResult = binarySearch(bubble, target);
         System.out.println("\nElement " + target + " is present at index " + binaryResult);
 
         System.out.println("\nOriginal array:");
