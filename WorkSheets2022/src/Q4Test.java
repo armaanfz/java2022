@@ -23,15 +23,14 @@ public class Q4Test
     public static void printArray(String[] array)
     {
         for(int i = 0; i < array.length; i++) {
-            System.out.print( "[" + i + "]" + array[i] + "  ");
+            System.out.printf("[%d]%-2s\n", i, array[i]);
         }
         System.out.println();
     }
 
-    public static void printArray(int[] array)
-    {
+    public static void printArray(int[] array) {
         for(int i = 0; i < array.length; i++) {
-            System.out.printf( "[%d]%-2d  ",i , array[i]);
+            System.out.printf( "[%d]%-2d\n", i, array[i]);
         }
         System.out.println();
     }
@@ -39,8 +38,9 @@ public class Q4Test
     public static void parallelPrint(String[] sa, int[] ia)
     {
         for(int i = 0; i < sa.length; i++) {
-            System.out.print( "[" + i + "]" + sa[i]);
-            System.out.println("    " + ia[i]);
+//            System.out.print( "[" + i + "]" + sa[i]);
+//            System.out.println("    " + ia[i]);
+            System.out.printf("%-9s %4d\n", sa[i], ia[i]);
         }
         System.out.println();
     }
@@ -54,8 +54,7 @@ public class Q4Test
     {
         for (int i = 0; i < ia.length; i++) {
             if (ia[i] > goals) {
-                System.out.print(sa[i]);
-                System.out.println("    " + ia[i]);
+                System.out.printf("%-9s %4d\n", sa[i], ia[i]);
             }
         }
     }
