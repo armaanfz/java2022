@@ -159,6 +159,7 @@ public class SortingAlgos {
             stringSorting();
         }
         else {
+            System.out.println("Error - Please type in your choice correctly");
             input();
         }
     }
