@@ -74,19 +74,17 @@ public class SortingAlgos {
 
     public static void bubbleSort(int[] a) {
         int temp;
-        int counter = 0;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length - i - 1; j++) {
-                counter++;
                 if (a[j] > a[j + 1]) {
                     temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
                 }
             }
+            System.out.print("\t");
             printArray(a);
         }
-        System.out.print("counter: " + counter + "\n");
     }
 
     private static void bubbleString(String[] a) {
@@ -99,6 +97,7 @@ public class SortingAlgos {
                     a[j + 1] = temp;
                 }
             }
+            System.out.print("\t");
             printStringArray(a);
         }
     }
@@ -143,16 +142,12 @@ public class SortingAlgos {
         return -1;
     }
 
-    public static int linearSearch(int[] a, int size, int x) {
-        if (size == 0) {
-            return -1;
+    public static int linearSearch(int[] a, int x) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == x)
+                return i;
         }
-        else if (a[size - 1] == x) {
-            return size -1;
-        }
-        else {
-            return linearSearch(a, size -1, x);
-        }
+        return -1;
     }
 
     public static void input() {
@@ -188,20 +183,29 @@ public class SortingAlgos {
         insertionSort(insert);
         System.out.println("\nFinal result:");
         printArray(insert);
-        int target = IBIO.inputInt("\n\nBinary search for number: ");
-        int r = bubble.length - 1, l = 0;
-        int result = binarySearch(bubble, l, r, target);
-        System.out.println("\nElement " + target + " is present at index " + result);
 
-        int size = linear.length;
-        int linearTarget = IBIO.inputInt("\n\nLinear search for number: ");
-        int linearResult = linearSearch(linear, size, linearTarget);
+        System.out.println("\n\nSorted array:");
+        printArray(bubble);
+        int target = IBIO.inputInt("Binary search for number: ");
+        int r = bubble.length - 1, l = 0;
+        int binaryResult = binarySearch(bubble, l, r, target);
+        System.out.println("\nElement " + target + " is present at index " + binaryResult);
+
+        System.out.println("\nOriginal array:");
+        printArray(original);
+        int linearTarget = IBIO.inputInt("Linear search for number: ");
+        int linearResult = linearSearch(linear, linearTarget);
         System.out.println("\nElement " + linearTarget + " is present at index " + linearResult);
     }
     public static void stringSorting () {
-        String[] original = {"banana", "strawberry", "pineapple", "orange", "apple"};
+        String[] original = {"Velma", "Bones", "Frank", "Han", "Jack"};
         String[] selection = cloneString(original);
+        String[] selectionParallel = cloneString(original);
         String[] bubble  = cloneString(original);
+        String[] bubbleParallel = cloneString(original);
+        int[] height = {169, 158, 201, 183, 172};
+        int[] selectionHeight = clone(height);
+        int[] bubbleHeight = clone(height);
 
         System.out.println("\nOriginal array:");
         printStringArray(original);
@@ -213,8 +217,62 @@ public class SortingAlgos {
         bubbleString(bubble);
         System.out.println("\nFinal result:");
         printStringArray(bubble);
+
+        System.out.println("\nOriginal Parallel arrays:");
+        printStringArray(original);
+        printArray(height);
+        System.out.println("\nSelection Sorting Parallel:");
+        selectionParallel(selectionParallel, selectionHeight);
+        System.out.println("\nFinal result:");
+        printStringArray(selectionParallel);
+        printArray(selectionHeight);
+        System.out.println("\nBubble Sorting Parallel:");
+        bubbleParallel(bubbleParallel, bubbleHeight);
+        System.out.println("\nFinal result:");
+        printStringArray(bubbleParallel);
+        printArray(bubbleHeight);
     }
 
+    private static void selectionParallel(String[] a, int[] b) {
+        for (int i = 0; i < a.length -1; i++) {
+            int smallestIndex = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if ((a[j].compareTo(a[smallestIndex])) < 0) {
+                    smallestIndex = j;
+                }
+            }
+            String temp = a[smallestIndex];
+            int temp2 = b[smallestIndex];
+            a[smallestIndex] = a[i];
+            b[smallestIndex] = b[i];
+            a[i] = temp;
+            b[i] = temp2;
+            System.out.print("\t");
+            printStringArray(a);
+            System.out.print("\t");
+            printArray(b);
+        }
+    }
+    private static void bubbleParallel(String[] a, int[] b) {
+        String temp;
+        int temp2;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length - i - 1; j++) {
+                if ((a[j].compareTo(a[j + 1])) > 0) {
+                    temp = a[j];
+                    temp2 = b[j];
+                    a[j] = a[j + 1];
+                    b[j] = b[j + 1];
+                    a[j + 1] = temp;
+                    b[j + 1] = temp2;
+                }
+            }
+            System.out.print("\t");
+            printStringArray(a);
+            System.out.print("\t");
+            printArray(b);
+        }
+    }
     public static void main (String[] args) {
         input();
     }
