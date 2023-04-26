@@ -38,8 +38,6 @@ public class Q4Test
     public static void parallelPrint(String[] sa, int[] ia)
     {
         for(int i = 0; i < sa.length; i++) {
-//            System.out.print( "[" + i + "]" + sa[i]);
-//            System.out.println("    " + ia[i]);
             System.out.printf("%-9s %4d\n", sa[i], ia[i]);
         }
         System.out.println();
