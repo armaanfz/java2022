@@ -14,5 +14,8 @@ public class Node
 		this.data = d;
 	}
 
+	public boolean hasNext()
+	{	return this.next != null;
+	}
 }
 

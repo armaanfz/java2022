@@ -13,10 +13,10 @@ public class Stack
 	}
 	
 	// public void push(Node newNode) OR
-	public void push(int d)
+	public void push(int data)
 	{	// the next 3 lines create a node with the argument of push (d)
 		Node newNode = new Node();
-		newNode.data = d;
+		newNode.data = data;
 		newNode.next = null;
 		
 		if( isEmpty() )
@@ -50,7 +50,20 @@ public class Stack
 			System.out.print(" -> ");
 			temp = temp.next;
 		}
-		System.out.println("NULL");
+		System.out.println("NULL. Stack size = " + this.size() );
+	}
+
+	public int size()
+	{
+		Node temp = top;
+		int size = 0;
+		//while(top != null)
+		while( temp != null )
+		{
+			size++;
+			temp = temp.next;
+		}
+		return size;
 	}
 }
 
