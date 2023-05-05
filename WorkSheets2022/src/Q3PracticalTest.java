@@ -33,7 +33,10 @@ public class Q3PracticalTest
     {
         for(int i = 0; i < a.length; i++)
         {
-            System.out.print( i + ":" + a[i] + "  ");
+//          System.out.print( i + ":" + a[i] + "  ");
+            if (a[i] != null) {
+                System.out.print( i + ":" + a[i] + "  ");
+            }
         }
         System.out.print("[ length: " + a.length + " ]\n");
     }
@@ -107,15 +110,16 @@ public class Q3PracticalTest
 
     public static void insert(String[] a, String data, int index)
     {
-        if(isFull(a))
+        if(isFull(a) || index >= MAXSIZE)
             System.out.println("Error - array full");
         else {
             if (index < population) {
-                population++;
                 String temp = a[index];
                 a[index] = data;
-                int firstNullIndex = search(a, null);
-                a[firstNullIndex] = temp;
+//              int firstNullIndex = search(a, null);
+//              a[firstNullIndex] = temp;
+                population++;
+                a[population] = data;   // or use search(a, data); but remove the population++;
             }
             else {
                 System.out.print("Error in index value(s)");
