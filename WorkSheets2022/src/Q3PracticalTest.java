@@ -1,30 +1,35 @@
-import java.sql.SQLOutput;
-
+@SuppressWarnings("ManualArrayCopy")
 public class Q3PracticalTest
 {
-    // global variables and constants
     final static int MAXSIZE = 10;
     static int population = 0;
 
-    public static boolean isFull(String[] a)
-    {
-        return population == MAXSIZE;
+    public static boolean isFull(String[] a) {
+        for(int i = 0; i < MAXSIZE; i++) {
+            if(a[i] == null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean isEmpty(String[] a)
     {
-        return population == 0;
+        for(int i = 0; i < MAXSIZE; i++) {
+            if(a[i] != null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void printArray(String[] a)
     {
         for(int i = 0; i < MAXSIZE; i++)
         {
-            if (a[i] == null) {
-                continue;
-            }
-            else
+            if (a[i] != null) {
                 System.out.print(i + ":" + a[i] + "  ");
+            }
         }
         System.out.printf("[ population: %d ]\n", population);
     }
@@ -33,10 +38,7 @@ public class Q3PracticalTest
     {
         for(int i = 0; i < a.length; i++)
         {
-//          System.out.print( i + ":" + a[i] + "  ");
-            if (a[i] != null) {
-                System.out.print( i + ":" + a[i] + "  ");
-            }
+            System.out.print( i + ":" + a[i] + "  ");
         }
         System.out.print("[ length: " + a.length + " ]\n");
     }
@@ -119,7 +121,7 @@ public class Q3PracticalTest
 //              int firstNullIndex = search(a, null);
 //              a[firstNullIndex] = temp;
                 population++;
-                a[population] = data;   // or use search(a, data); but remove the population++;
+                a[population] = temp;   // or use search(a, data); but remove the population++;
             }
             else {
                 System.out.print("Error in index value(s)");
@@ -156,6 +158,7 @@ public class Q3PracticalTest
         System.out.println("\n5. Test search(arr, \"banana\") method [1]: " + search(arr, "banana"));
         System.out.println("   Test search(arr, \"grape\") method [-1]: " + search(arr, "grape"));
         String[] full = clone(arr);
+        //noinspection ArrayEquals
         System.out.println("\n6. Testing clone method String[] full = clone(arr); [false]: " + arr.equals(full));
         System.out.println("\n7. Testing remove(arr, \"dragonfruit\"); remove(arr, \"gooseberry\"); - output should be as below:");
         remove(arr, "dragonfruit");
@@ -192,159 +195,6 @@ public class Q3PracticalTest
     // IBIO Standard Input and Output
     //  These methods must be copied into your program(s).
     //===========================================================
-
-    static void output(String info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(char info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(byte info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(int info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(long info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(double info)
-    {
-        System.out.println(info);
-    }
-
-    static void output(boolean info)
-    {
-        System.out.println(info);
-    }
-
-    static String input(String prompt)
-    {
-        String inputLine = "";
-        System.out.print(prompt);
-        try
-        {
-            inputLine = (new java.io.BufferedReader(
-                    new java.io.InputStreamReader(System.in))).readLine();
-        } catch (Exception e)
-        {
-            String err = e.toString();
-            System.out.println(err);
-            inputLine = "";
-        }
-        return inputLine;
-    }
-
-    static String inputString(String prompt)
-    {
-        return input(prompt);
-    }
-
-    static String input()
-    {
-        return input("");
-    }
-
-    static int inputInt()
-    {
-        return inputInt("");
-    }
-
-    static double inputDouble()
-    {
-        return inputDouble("");
-    }
-
-    static char inputChar(String prompt)
-    {
-        char result = (char) 0;
-        try
-        {
-            result = input(prompt).charAt(0);
-        } catch (Exception e)
-        {
-            result = (char) 0;
-        }
-        return result;
-    }
-
-    static byte inputByte(String prompt)
-    {
-        byte result = 0;
-        try
-        {
-            result = Byte.valueOf(input(prompt).trim()).byteValue();
-        } catch (Exception e)
-        {
-            result = 0;
-        }
-        return result;
-    }
-
-    static int inputInt(String prompt)
-    {
-        int result = 0;
-        try
-        {
-            result = Integer.valueOf(
-                    input(prompt).trim()).intValue();
-        } catch (Exception e)
-        {
-            result = 0;
-        }
-        return result;
-    }
-
-    static long inputLong(String prompt)
-    {
-        long result = 0;
-        try
-        {
-            result = Long.valueOf(input(prompt).trim()).longValue();
-        } catch (Exception e)
-        {
-            result = 0;
-        }
-        return result;
-    }
-
-    static double inputDouble(String prompt)
-    {
-        double result = 0;
-        try
-        {
-            result = Double.valueOf(
-                    input(prompt).trim()).doubleValue();
-        } catch (Exception e)
-        {
-            result = 0;
-        }
-        return result;
-    }
-
-    static boolean inputBoolean(String prompt)
-    {
-        boolean result = false;
-        try
-        {
-            result = Boolean.valueOf(
-                    input(prompt).trim()).booleanValue();
-        } catch (Exception e)
-        {
-            result = false;
-        }
-        return result;
-    }
 	//=========== end IBIO ===========================================//
 
 }
