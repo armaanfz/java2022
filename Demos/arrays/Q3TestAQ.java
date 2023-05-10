@@ -1,3 +1,7 @@
+/*
+ * Q3 theory test algorithm arrays question
+ * Answer in Java code
+ */
 
 public class Q3TestAQ
 {

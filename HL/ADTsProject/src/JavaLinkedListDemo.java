@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 // SL = collection; HL = Linked list
-public class LinkedListJavaDemo
+public class JavaLinkedListDemo
 {
 
     public static void bubbleSort(String[] a)
