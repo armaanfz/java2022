@@ -39,17 +39,17 @@ public class SortingAlgos {
 
     public static void selectionSort(int[] a) {
         for (int i = 0; i < a.length -1; i++) {
-            int smallestIndex = i;
-            int smallestValue = a[smallestIndex];
-            int checkIndex = smallestIndex + 1;
+            int minPos = i;
+            int smallestValue = a[minPos];
+            int checkIndex = minPos + 1;
             while( checkIndex < a.length ) {
                 if(a[checkIndex] < smallestValue) {
-                    smallestIndex = checkIndex;
+                    minPos = checkIndex;
                     smallestValue = a[checkIndex];
                 }
                 checkIndex++;
             }
-            a[smallestIndex] = a[i];
+            a[minPos] = a[i];
             a[i] = smallestValue;
             System.out.print("\t");
             printArray(a);
@@ -58,14 +58,14 @@ public class SortingAlgos {
 
     private static void selectionString(String[] a) {
         for (int i = 0; i < a.length -1; i++) {
-            int smallestIndex = i;
+            int minPos = i;
             for (int j = i + 1; j < a.length; j++) {
-                if ((a[j].compareTo(a[smallestIndex])) < 0) {
-                    smallestIndex = j;
+                if ((a[j].compareTo(a[minPos])) < 0) {
+                    minPos = j;
                 }
             }
-            String temp = a[smallestIndex];
-            a[smallestIndex] = a[i];
+            String temp = a[minPos];
+            a[minPos] = a[i];
             a[i] = temp;
             System.out.print("\t");
             printStringArray(a);
@@ -252,16 +252,16 @@ public class SortingAlgos {
 
     private static void selectionParallel(String[] a, int[] b) {
         for (int i = 0; i < a.length -1; i++) {
-            int smallestIndex = i;
+            int minPos = i;
             for (int j = i + 1; j < a.length; j++) {
-                if ((a[j].compareTo(a[smallestIndex])) < 0) {
-                    smallestIndex = j;
+                if ((a[j].compareTo(a[minPos])) < 0) {
+                    minPos = j;
                 }
             }
-            String temp = a[smallestIndex];
-            int temp2 = b[smallestIndex];
-            a[smallestIndex] = a[i];
-            b[smallestIndex] = b[i];
+            String temp = a[minPos];
+            int temp2 = b[minPos];
+            a[minPos] = a[i];
+            b[minPos] = b[i];
             a[i] = temp;
             b[i] = temp2;
             System.out.print("\t");

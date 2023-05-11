@@ -27,13 +27,13 @@ public class SortingAlgosString
 	public static void selectionSort(String[] a)
 	{
 		int c = 0;
-		/*int currentIndex = 0;
-		while( currentIndex < a.length - 1 ) */
-		for(int currentIndex = 0; currentIndex < a.length - 1; currentIndex++)
+		/*int i = 0;
+		while( i < a.length - 1 ) */
+		for(int i = 0; i < a.length - 1; i++)
 		{
-			int smallestIndex = currentIndex;
+			int smallestIndex = i;
 			String smallestValue = a[smallestIndex];
-			int checkIndex	  = smallestIndex + 1;
+			int checkIndex = smallestIndex + 1;
 			while( checkIndex < a.length )
 			{
 				c++;
@@ -44,9 +44,9 @@ public class SortingAlgosString
 				}
 				checkIndex++;
 			}
-			a[smallestIndex] = a[currentIndex];
-			a[currentIndex] = smallestValue;
-			//currentIndex++; // because it's already in the for loop
+			a[smallestIndex] = a[i];
+			a[i] = smallestValue;
+			//i++; // because it's already in the for loop
 			// line below--optional, shows how the array changes with each swap
 			System.out.print("\t"); printArray(a);
 		}
