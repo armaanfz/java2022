@@ -31,7 +31,7 @@ public class SearchingAlgosString
 		for(int i = 0; i < a.length; i++)
 		{
 			c++;
-			if(key.equalsIgnoreCase(a[i]) )
+			if(key.equalsIgnoreCase(a[i]))
 			{	index = i;
 				break; //exit the loop, stop searching
 			}

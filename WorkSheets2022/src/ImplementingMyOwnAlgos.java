@@ -40,6 +40,38 @@ public class ImplementingMyOwnAlgos {
             }
         }
     }
+
+    public static void bubblePartop(String[] a) {
+        int sorted = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length - sorted -1; j++) {
+                if (a[j].compareTo(a[j+1]) > 0) {
+                    String temp = a[j+1];
+                    a[j+1] = a[j];
+                    a[j] = temp;
+                }
+                System.out.print("\t>>> j=" + j + " "); printArray(a);
+            }
+        }
+    }
+
+    public static void bubbleFullop(String[] a) {
+        int sorted = 0;
+        boolean swapped = true;
+        while (swapped) {
+            swapped = false;
+            for (int i = 0; i < a.length - sorted -1; i++) {
+                if (a[i].compareTo(a[i+1]) > 0) {
+                    String temp = a[i+1];
+                    a[i+1] = a[i];
+                    a[i] = temp;
+                    swapped = true;
+                }
+                System.out.print("\t>>> j=" + i + " "); printArray(a);
+            }
+            sorted++;
+        }
+    }
     public static void main(String[] args) {
         String[] a = { "Robert", "Boris", "Brad", "George", "David" }; // from our arrays practice #1 - tracing our sorting algos with that example, too
         String[] selection = cloneString(a);
@@ -53,5 +85,9 @@ public class ImplementingMyOwnAlgos {
         selectionString(selection);
         System.out.println("\nBubble (unoptimized) Sorting:");
         bubbleUnop(bubble1);
+        System.out.println("\nBubble (partially optimized) Sorting:");
+        bubblePartop(bubble2);
+        System.out.println("\nBubble (fully optimized) Sorting:");
+        bubbleFullop(bubble3);
     }
 }
