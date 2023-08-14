@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class TicTacToe
 {
-	private static boolean play = true;
+	static boolean play = true;
 
 	public static void printBoard(char[][] a) // n*(n+n) = O(n^2)
 	{
@@ -170,24 +170,33 @@ public class TicTacToe
 
 		board[row-1][column-1] = 'O';
 
-		while (board[rowX][columnX] != '/') {
-			rowX = (int)Math.floor(Math.random() * (max - min + 1) + min);
-			columnX = (int)Math.floor(Math.random() * (max - min + 1) + min);
-		}
-
-		board[rowX][columnX] = 'X';
-
 		if (isWin(board, row-1, column-1, 'O')) {
 			System.out.println();
 			printBoard(board);
 			System.out.println("You win!");
 			play = false;
+			return;
 		}
-		else if (isWin(board, row-1, column-1, 'X')) {
+
+		if (isEmpty(board)) {
+			while (board[rowX][columnX] != '/') {
+				rowX = (int) Math.floor(Math.random() * (max - min + 1) + min);
+				columnX = (int) Math.floor(Math.random() * (max - min + 1) + min);
+			}
+		}
+		else {
+			System.out.println("It's a tie!");
+			play = false;
+		}
+
+		board[rowX][columnX] = 'X';
+
+		if (isWin(board, row-1, column-1, 'X')) {
 			System.out.println();
 			printBoard(board);
 			System.out.println("Computer wins!");
 			play = false;
+			return;
 		}
 		else {
 			System.out.println();
@@ -195,8 +204,7 @@ public class TicTacToe
 		}
 	}
 
-	public static void main(String[] args)
-	{
+	public static void init() {
 		while (play) {
 			int n = IBIO.inputInt("How big is the board? ");
 			if (n < 3) {
@@ -211,57 +219,25 @@ public class TicTacToe
 			}
 
 			printBoard(board);
-			while (isEmpty(board)) {
+			while (play) {
 				playerMove(board);
 			}
+		}
+	}
 
-			if (!isEmpty(board)) {
-				System.out.println("It's a tie!");
+	public static void main(String[] args)
+	{
+		init();
+		if (!play) {
+			char rematch = IBIO.inputChar("Would you like a rematch? Respond with y or n: ");
+			if (rematch == 'y') {
+				play = true;
+				init();
+			}
+			else {
+				System.exit(0);
 			}
 		}
-
-		char rematch = IBIO.inputChar("Would you like a rematch? Respond with y or n");
-		if (rematch == 'y') {
-			play = true;
-		}
-		else {
-			System.exit(0);
-		}
-
-		/*
-		System.out.println();					// 0 4	1 3  2 2  3 1  4 0
-		//					   0    1    2    3    4		length=5
-		char[][] board2= {	{ '1', '2', '3', '4', '5' },	//  0
-							{ '6', '7', '8', '9', 'A' },	//  1
-							{ 'B', 'C', 'D', 'E', 'F' },	//  2
-							{ 'G', 'H', 'I', 'J', 'K' },	//  3
-							{ 'L', 'M', 'N', 'O', 'P' },	//  4
-						};
-
-		printBoard(board2);
-		System.out.println();
-
-		System.out.println("\nPrinting rows 3 & 9");
-		printRow(board2, 3);
-		printRow(board2, 9);
-
-		System.out.println("\nPrinting columns 5 & 9");
-		printColumn(board2, 5);
-		printColumn(board2, 9);
-
-		System.out.println("\nPrinting Diagonal 1");
-		printDiagonal1(board);
-		System.out.println();
-		printDiagonal1(board2);
-
-		System.out.println("\nPrinting Diagonal 2");
-		printDiagonal2(board);
-		System.out.println();
-		printDiagonal2(board2);
-
-		int row = 2;
-		System.out.println( "\nChecking player X, row " + (row+1) + "=" + checkRow(board, 2, 'X') ); // checks if player X won row 2 (3rd row)
-		*/
 	}
 }
 
