@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class TicTacToe
 {
+	private static boolean play = true;
 
 	public static void printBoard(char[][] a) // n*(n+n) = O(n^2)
 	{
@@ -85,39 +86,6 @@ public class TicTacToe
 		}
 	}
 
-	public static boolean checkRow(char[][] board, int row, char player)
-	{
-		if( board == null )
-		{
-			return false;
-		}
-		row = Math.abs(row);		// |x|; if( row < 0 ) row = row * -1;
-		row = row % board.length;	// % modulo;  allows roll over of values
-		for(int col = 0; col < board[row].length; col++) // iterates over each column
-		{
-			if(board[row][col] != player)
-			{	return false;
-			}
-		}
-		return true;
-	}
-
-	public static boolean checkColumn(char[][] board, int column, char player) {
-		if (board == null)
-		{
-			return false;
-		}
-		column = Math.abs(column);		// |x|; if( row < 0 ) row = row * -1;
-		column = column % board.length;	// % modulo;  allows roll over of values
-		for(int row = 0; row < board[column].length; row++) // iterates over each column
-		{
-			if(board[row][column] != player)
-			{	return false;
-			}
-		}
-		return true;
-	}
-
 	public static boolean isEmpty(char[][] board) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; i < board[i].length; i++) {
@@ -129,34 +97,72 @@ public class TicTacToe
 		return false;
 	}
 
-	private static boolean checkDiagonalRL(char[][] board, int row, char o) {
-
-		return false;
+	public static boolean checkRow(char[][] board, int row, char player)
+	{
+		row = Math.abs(row);		// |x|; if( row < 0 ) row = row * -1;
+		row = row % board.length;	// % modulo;  allows roll over of values
+		for(int col = 0; col < board[row].length; col++) // iterates over each column
+		{
+			if(board[row][col] != player)
+			{	return false;
+			}
+		}
+		return true;
 	}
-	private static boolean checkDiagonalLR(char[][] board, int row, char o) {
 
-		return false;
+	public static boolean checkColumn(char[][] board, int col, char player) {
+		col = Math.abs(col);		// |x|; if( row < 0 ) row = row * -1;
+		col = col % board.length;	// % modulo;  allows roll over of values
+		for(int row = 0; row < board[col].length; row++) // iterates over each column
+		{
+			if(board[row][col] != player)
+			{	return false;
+			}
+		}
+		return true;
 	}
 
-	public static boolean isWin(char[][] board, int row, int column) {
-		if (checkRow(board, row, 'O')) {
+	private static boolean checkDiagonalRL(char[][] board, char player) {
+		for (int i = 0; i < board.length; i++) {
+			if (board[i][i] != player) {
+				return false;
+			}
+		}
+		return true;
+	}
+	private static boolean checkDiagonalLR(char[][] board, char player) {
+		int j = 0;
+		for (int i = board.length-1; i >= 0; i--) {
+			if (board[j][i] != player) {
+				return false;
+			}
+			j++;
+		}
+		return true;
+	}
+
+	public static boolean isWin(char[][] board, int row, int column, char player) {
+		if (checkRow(board, row, player)) {
 			return true;
-		} else if (checkColumn(board, column, 'O')) {
+		} else if (checkColumn(board, column, player)) {
 			return true;
-		} else if (checkDiagonalLR(board, row, 'O')) {
+		} else if (checkDiagonalLR(board, player)) {
 			return true;
-		} else if (checkDiagonalRL(board, row, 'O')) {
+		} else if (checkDiagonalRL(board, player)) {
 			return true;
 		}
 		return false;
 	}
 
 	public static void playerMove(char[][] board) {
+		int min = 0;
+		int max = board.length-1;
+		int rowX = (int)Math.floor(Math.random() * (max - min + 1) + min);
+		int columnX = (int)Math.floor(Math.random() * (max - min + 1) + min);
 		int row = IBIO.inputInt("Which row? ");
 		int column = IBIO.inputInt("Which column? ");
 
-		while (board[row-1][column-1] != '/')
-		{
+		while (board[row-1][column-1] != '/') {
 			System.out.println("The row and column selected is filled, try again");
 			row = IBIO.inputInt("Which row? ");
 			column = IBIO.inputInt("Which column? ");
@@ -164,38 +170,64 @@ public class TicTacToe
 
 		board[row-1][column-1] = 'O';
 
-		if (!isWin(board, row-1, column-1)) {
+		while (board[rowX][columnX] != '/') {
+			rowX = (int)Math.floor(Math.random() * (max - min + 1) + min);
+			columnX = (int)Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		board[rowX][columnX] = 'X';
+
+		if (isWin(board, row-1, column-1, 'O')) {
 			System.out.println();
 			printBoard(board);
+			System.out.println("You win!");
+			play = false;
+		}
+		else if (isWin(board, row-1, column-1, 'X')) {
+			System.out.println();
+			printBoard(board);
+			System.out.println("Computer wins!");
+			play = false;
 		}
 		else {
 			System.out.println();
 			printBoard(board);
-			System.out.println("You win!");
-			System.exit(0);
 		}
 	}
 
 	public static void main(String[] args)
 	{
-		int n = IBIO.inputInt("How big is the board? ");
-		if (n < 3) {
-			n = 3;
-			System.out.println("Incorrect size, using size of the board as 3");
+		while (play) {
+			int n = IBIO.inputInt("How big is the board? ");
+			if (n < 3) {
+				n = 3;
+				System.out.println("Incorrect size, using size of the board as 3");
+			}
+
+			char[][] board = new char[n][n];
+			// 0 2  1 1  2 0
+			for (int i = 0; i < board.length; i++) {
+				Arrays.fill(board[i], '/');
+			}
+
+			printBoard(board);
+			while (isEmpty(board)) {
+				playerMove(board);
+			}
+
+			if (!isEmpty(board)) {
+				System.out.println("It's a tie!");
+			}
 		}
 
-		char[][] board = new char[n][n];
-		// 0 2  1 1  2 0
-		for (int i = 0; i < board.length; i++) {
-			Arrays.fill(board[i], '/');
+		char rematch = IBIO.inputChar("Would you like a rematch? Respond with y or n");
+		if (rematch == 'y') {
+			play = true;
+		}
+		else {
+			System.exit(0);
 		}
 
-		printBoard(board);
-		while (isEmpty(board)) {
-			playerMove(board);
-		}
-
-		System.out.println("It's a tie!");
 		/*
 		System.out.println();					// 0 4	1 3  2 2  3 1  4 0
 		//					   0    1    2    3    4		length=5
