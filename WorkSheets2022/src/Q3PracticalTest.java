@@ -25,7 +25,7 @@ public class Q3PracticalTest
 
     public static void printArray(String[] a)
     {
-        for(int i = 0; i < MAXSIZE; i++)
+        for(int i = 0; i < a.length; i++)
         {
             if (a[i] != null) {
                 System.out.print(i + ":" + a[i] + "  ");

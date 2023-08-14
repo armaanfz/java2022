@@ -52,6 +52,7 @@ public class ImplementingMyOwnAlgos {
                 }
                 System.out.print("\t>>> j=" + j + " "); printArray(a);
             }
+            sorted++;
         }
     }
 
