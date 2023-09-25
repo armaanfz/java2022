@@ -2,7 +2,7 @@ public class Animal
 {
     // attributes/fields/instance variables
     private String name;
-    private int birthYear;
+    private final int birthYear;
     // private = data hiding
 
     // (custom) constructor method
