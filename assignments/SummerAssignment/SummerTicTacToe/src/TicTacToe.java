@@ -162,6 +162,7 @@ public class TicTacToe
 		int row = IBIO.inputInt("Which row? ");
 		int column = IBIO.inputInt("Which column? ");
 
+		// C
 		while (board[row-1][column-1] != '/') {
 			System.out.println("The row and column selected is filled, try again");
 			row = IBIO.inputInt("Which row? ");
