@@ -4,18 +4,20 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
-    public Fraction() {
+    public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
-    public void enter() {
+    public static Fraction enter() {
         String strFraction = IBIO.input("Enter a fraction in a/b format" );
         strFraction = strFraction.replace("/", " ");
         Scanner parse = new Scanner(strFraction);
-        numerator = parse.nextInt();
-        denominator = parse.nextInt();
-        //this.simplify();
+        int numerator = parse.nextInt();
+        int denominator = parse.nextInt();
+        Fraction f = new Fraction(numerator, denominator);
+        //f.simplify();
+        return f;
     }
 
     private static int gcd() {
@@ -33,7 +35,7 @@ public class Fraction {
     public Fraction add(Fraction b) {
         int num1 = this.numerator;
         int den1 = this.denominator;
-        Fraction c = new Fraction();
+        Fraction c = new Fraction(0, 0);
 
         c.numerator = (num1 * b.denominator) + (b.numerator * den1);
         c.denominator = den1 * b.denominator;
