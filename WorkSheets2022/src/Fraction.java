@@ -16,17 +16,34 @@ public class Fraction {
         int numerator = parse.nextInt();
         int denominator = parse.nextInt();
         Fraction f = new Fraction(numerator, denominator);
-        //f.simplify();
+        f.simplify(f);
         return f;
     }
 
-    private static int gcd() {
-        return 0;
+    private static int gcd(Fraction a) {
+        int x = a.numerator;
+        int y = a.denominator;
+
+        do {
+            if (x > y) {
+                x = x - y;
+            }
+            else {
+                y = y - x;
+            }
+        }
+        while (x != y);
+        return y;
     }
 
-    private void simiplify() {
-
+    private void simplify(Fraction a) {
+        int gcd = gcd(a);
+        int n = a.numerator / gcd;
+        int d = a.denominator / gcd;
+        this.numerator = n;
+        this.denominator = d;
     }
+
     public String toString() {
         String s = numerator + "/" + denominator;
         return s;
@@ -39,6 +56,7 @@ public class Fraction {
 
         c.numerator = (num1 * b.denominator) + (b.numerator * den1);
         c.denominator = den1 * b.denominator;
+        c.simplify(c);
         return c;
     }
 }
