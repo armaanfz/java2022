@@ -12,6 +12,10 @@ public class Laptop extends Computer {
     public void setBattery(int battery) {
         this.battery = battery;
     }
+    public double getVirtualMemory() {
+        return this.getPrimaryMemory() * 1.2;
+    }
+
 
     public String toString() {
         return super.toString() + "\nBattery: " + this.battery;
