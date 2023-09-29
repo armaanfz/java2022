@@ -2,8 +2,8 @@ public class Server extends Computer {
 
 	private int clients;
 
-	public Server(String name, int primaryMemory, int secondaryMemory, int clients) {
-		super(name, primaryMemory, secondaryMemory);
+	public Server(String name, String cpu, int primaryMemory, int secondaryMemory, int clients) {
+		super(name, cpu, primaryMemory, secondaryMemory);
 		this.clients = clients;
 	}
 
@@ -16,7 +16,7 @@ public class Server extends Computer {
 	}
 
 	// just for example purposes
-	public double getVirtualMemory() {
+	public double calculateVirtualMemory() {
 		return (this.getPrimaryMemory() * 3) + (this.clients * 0.5);
 	}
 

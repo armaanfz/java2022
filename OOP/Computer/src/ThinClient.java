@@ -1,8 +1,8 @@
 public class ThinClient extends Computer {
     private String protocol;
 
-    public ThinClient(String name, int primaryMemory, int secondaryMemory, String protocol) {
-        super(name, primaryMemory, secondaryMemory);
+    public ThinClient(String name, String cpu, int primaryMemory, int secondaryMemory, String protocol) {
+        super(name, cpu, primaryMemory, secondaryMemory);
         this.protocol = protocol;
     }
 
@@ -14,8 +14,7 @@ public class ThinClient extends Computer {
         this.protocol = protocol;
     }
 
-    @Override
-    public double getVirtualMemory() {
+    public double calculateVirtualMemory() {
         return 0;
     }
 
