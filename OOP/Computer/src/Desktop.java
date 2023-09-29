@@ -18,6 +18,6 @@ public class Desktop extends Computer {
     }
 
     public String toString() {
-        return super.toString() + "\nBattery: " + this.GPU;
+        return super.toString() + "\nDiscrete GPU: " + this.GPU;
     }
 }
